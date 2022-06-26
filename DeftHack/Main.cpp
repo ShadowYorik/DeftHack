@@ -77,6 +77,7 @@ int main()
 	std::filesystem::path unturnedDirectory;
 	if (!getUnturnedDirectory(unturnedDirectory))
 	{
+		system("pause");
 		return 0;
 	}
 
@@ -85,6 +86,7 @@ int main()
 	if (stdErrorCode.value() != 0)
 	{
 		LOG_ERROR_WITH_CODE("Unable to get temp directory path!", stdErrorCode.value());
+		system("pause");
 		return 0;
 	}
 
@@ -96,6 +98,7 @@ int main()
 		if (setupDeftHack(gameImagePath, deftHackImagePath))
 		{
 			LOG_INFO("Setup completed!");
+			LOG_INFO("Please, start unturned!");
 		}
 
 		break;
@@ -113,5 +116,6 @@ int main()
 		break;
 	}
 
+	system("pause");
 	return 0;
 }
