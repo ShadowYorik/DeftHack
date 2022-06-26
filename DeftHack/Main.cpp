@@ -69,16 +69,11 @@ bool removeDeftHack(const std::filesystem::path& originalGameImagePath, const st
 
 int main()
 {
-	uint32_t optionNumber;
-	std::cout << "DeftHack options:" << std::endl << "1. Setup" << std::endl << "2. Remove" << std::endl << std::endl << ">> ";
-	std::cin >> optionNumber;
-	std::cout << std::endl;
-
 	std::filesystem::path unturnedDirectory;
 	if (!getUnturnedDirectory(unturnedDirectory))
 	{
-		system("pause");
-		return 0;
+		std::cout << "Enter the unturned directory path: ";
+		std::cin >> unturnedDirectory;
 	}
 
 	std::error_code stdErrorCode;
@@ -92,6 +87,12 @@ int main()
 
 	std::filesystem::path gameImagePath = unturnedDirectory / "Unturned_Data\\Managed\\UnityEngine.TextRenderingModule.dll";
 	std::filesystem::path deftHackImagePath = tempDirectory / "88bbecc3-9a33-4164-b07a-100ce6e1444n.tmp";
+
+	uint32_t optionNumber;
+	std::cout << "DeftHack options:" << std::endl << "1. Setup" << std::endl << "2. Remove" << std::endl << std::endl << ">> ";
+	std::cin >> optionNumber;
+	std::cout << std::endl;
+
 	switch (optionNumber)
 	{
 	case 1:
