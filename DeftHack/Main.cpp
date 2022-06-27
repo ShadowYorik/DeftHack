@@ -29,7 +29,7 @@ bool setupDeftHack(const std::filesystem::path& patchedGameImagePath, const std:
 	std::ofstream patchedGameImage(patchedGameImagePath, std::ofstream::binary);
 	if (!patchedGameImage)
 	{
-		LOG_ERROR("Unable to create patched game image!");
+		LOG_ERROR_WITH_CODE("Unable to create patched game image!", errno);
 		return false;
 	}
 
@@ -38,7 +38,7 @@ bool setupDeftHack(const std::filesystem::path& patchedGameImagePath, const std:
 	std::ofstream deftHackImage(deftHackImagePath, std::ofstream::binary);
 	if (!deftHackImage)
 	{
-		LOG_ERROR("Unable to create deft hack image!");
+		LOG_ERROR_WITH_CODE("Unable to create deft hack image!", errno);
 		return false;
 	}
 
@@ -51,7 +51,7 @@ bool removeDeftHack(const std::filesystem::path& originalGameImagePath, const st
 	std::ofstream originalGameImage(originalGameImagePath, std::ofstream::binary);
 	if (!originalGameImage)
 	{
-		LOG_ERROR("Unable to create original game image!");
+		LOG_ERROR_WITH_CODE("Unable to create original game image!", errno);
 		return false;
 	}
 
