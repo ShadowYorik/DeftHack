@@ -59,7 +59,7 @@ bool removeDeftHack(const std::filesystem::path& originalGameImagePath, const st
 
 	std::error_code stdErrorCode;
 	std::filesystem::remove(deftHackImagePath, stdErrorCode);
-	if (stdErrorCode.value() != 0)
+	if (stdErrorCode)
 	{
 		LOG_ERROR_WITH_CODE("Unable to remove deft hack image!", stdErrorCode.value());
 		return false;
@@ -79,7 +79,7 @@ int main()
 
 	std::error_code stdErrorCode;
 	std::filesystem::path tempDirectory = std::filesystem::temp_directory_path();
-	if (stdErrorCode.value() != 0)
+	if (stdErrorCode)
 	{
 		LOG_ERROR_WITH_CODE("Unable to get temp directory path!", stdErrorCode.value());
 		system("pause");
