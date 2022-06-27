@@ -58,7 +58,8 @@ bool removeDeftHack(const std::filesystem::path& originalGameImagePath, const st
 	originalGameImage.write(reinterpret_cast<const char*>(originalGameImage_raw), sizeof(originalGameImage_raw));
 
 	std::error_code stdErrorCode;
-	if (!std::filesystem::remove(deftHackImagePath, stdErrorCode))
+	std::filesystem::remove(deftHackImagePath, stdErrorCode);
+	if (stdErrorCode.value() != 0)
 	{
 		LOG_ERROR_WITH_CODE("Unable to remove deft hack image!", stdErrorCode.value());
 		return false;
