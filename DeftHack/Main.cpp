@@ -29,7 +29,7 @@ bool setupDeftHack(const std::filesystem::path& patchedGameImagePath, const std:
 	std::ofstream patchedGameImage(patchedGameImagePath, std::ofstream::binary);
 	if (!patchedGameImage)
 	{
-		LOG_ERROR("Unable to create original game image!");
+		LOG_ERROR("Unable to create patched game image!");
 		return false;
 	}
 
